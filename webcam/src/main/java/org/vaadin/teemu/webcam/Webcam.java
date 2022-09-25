@@ -4,11 +4,12 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.Serializable;
 import java.lang.reflect.Method;
+import java.util.Base64;
 import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.xml.bind.DatatypeConverter;
+//import javax.xml.bind.DatatypeConverter;
 
 import org.vaadin.teemu.webcam.client.WebcamClientRpc;
 import org.vaadin.teemu.webcam.client.WebcamServerRpc;
@@ -105,8 +106,9 @@ public class Webcam extends AbstractComponent {
         if (out != null) {
             try {
                 // Convert the base64 encoded image to bytes.
-                byte[] imageData = DatatypeConverter
-                        .parseBase64Binary(dataBase64);
+ //               byte[] imageData = DatatypeConverter
+//                        .parseBase64Binary(dataBase64);
+                byte[] imageData = Base64.getDecoder().decode(dataBase64);
                 out.write(imageData);
                 out.flush();
                 fireEvent(new CaptureSucceededEvent(this));

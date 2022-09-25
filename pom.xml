@@ -12,5 +12,12 @@
 		<module>webcam</module>
 		<module>webcam-demo</module>
 	</modules>
+	<dependencies>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.15</version>
+		</dependency>
+	</dependencies>
 
 </project>
